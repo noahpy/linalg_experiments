@@ -2,11 +2,7 @@
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-from qr_decomp import gram_schmidt
-
-
-def generate_random_matrix(m, n):
-    return np.random.randn(m, n)
+from utils import gram_schmidt
 
 
 def generate_data_principal_comp(principal_components, principal_values, num_samples):
