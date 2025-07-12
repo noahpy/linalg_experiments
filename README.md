@@ -7,3 +7,4 @@ So far:
  - QR decomp
  - Projection via Solving Normal Equation
  - Principal compoenent analysis with SVD
+ - Moore Penrose inverse calculation with SVD
