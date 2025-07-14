@@ -8,7 +8,7 @@ COLS = 15
 A = generate_random_matrix(ROWS, COLS)
 
 
-def calc_moore_rose_inverse(A):
+def calc_moore_penrose_inverse(A):
     """
     Given matrix A, caluclate the moore rose inverse A^+ using SVD.
     """
@@ -21,21 +21,22 @@ def calc_moore_rose_inverse(A):
     return mr_inverse
 
 
-print("Given random matrix A with shape: ", A.shape)
+if __name__ == "__main__":
+    print("Given random matrix A with shape: ", A.shape)
 
-inv = calc_moore_rose_inverse(A)
+    inv = calc_moore_penrose_inverse(A)
 
-print("Calculated Moore Rose inverse with shape: ", inv.shape)
+    print("Calculated Moore Rose inverse with shape: ", inv.shape)
 
-# Apply inverse
-if ROWS > COLS:
-    out = inv @ A
-else:
-    out = A @ inv
+    # Apply inverse
+    if ROWS > COLS:
+        out = inv @ A
+    else:
+        out = A @ inv
 
-# Check if it works
-if is_identity_matrix(out):
-    print("Moore Rose Inverse works!")
-else:
-    print("Inverse did not work...")
-    print("This may be if A is not full rank")
+    # Check if it works
+    if is_identity_matrix(out):
+        print("Moore Rose Inverse works!")
+    else:
+        print("Inverse did not work...")
+        print("This may be if A is not full rank")
